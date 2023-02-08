@@ -21,7 +21,7 @@ class App extends Component {
       `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}`
     );
     const data = await api.json();
-    if (city & country) {
+    if (city && country) {
       this.setState({
         temp: data.main.temp,
         city: data.name,
@@ -45,7 +45,14 @@ class App extends Component {
     return (
       <div className="App">
         <Form getWeather={this.getWeather} />
-        <Weather />
+        <Weather
+          temp={this.state.temp}
+          city={this.state.city}
+          country={this.state.country}
+          hum={this.state.hum}
+          desc={this.state.desc}
+          error={this.state.error}
+        />
       </div>
     );
   }
