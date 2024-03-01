@@ -18,7 +18,7 @@ class App extends Component {
     let city = e.target.elements.city.value;
     let country = e.target.elements.country.value;
     const api = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}`
     );
     const data = await api.json();
     if (city && country) {
